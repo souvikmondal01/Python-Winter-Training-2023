@@ -1,0 +1,21 @@
+{
+    "accessKey": "c5ec3967-9632-11ed-9ea8-ea82cc104a64",
+    "secretKey": "0c27ba05-8c7a-4e9e-9a86-b3f1b59393bf",
+    "item_type": [
+        "Food",
+        "Beverages",
+        "Clothing",
+        "Stationaries",
+        "Wearables",
+        "Electronics Accessories"
+    ],
+    "users": [
+        {
+            "name": "Souvik Mondal",
+            "email": "souvik@gmail.com",
+            "pawword": "12345",
+            "username": "souvik",
+            "purchases": {}
+        }
+    ]
+}

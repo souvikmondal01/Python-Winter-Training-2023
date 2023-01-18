@@ -13,9 +13,25 @@
         {
             "name": "Souvik Mondal",
             "email": "souvik@gmail.com",
-            "pawword": "12345",
+            "password": "12345",
             "username": "souvik",
             "purchases": {}
+        },
+        {
+            "name": "Souvik2",
+            "email": "souvik2@gmail.com",
+            "password": "12345",
+            "username": "souvik2",
+            "purchases": {
+                "2023-01-18": [
+                    {
+                        "item_name": "abc",
+                        "item_type": "Clothing",
+                        "item_price": "500",
+                        "purchase_time": "2023-01-18 12:38:11.617631+05:30"
+                    }
+                ]
+            }
         }
     ]
 }

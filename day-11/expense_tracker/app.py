@@ -4,7 +4,7 @@ import os,json,pytz
 from datetime import date,datetime
 
 db = {}
-db_filename = "D:\\Python_Winter_Training_2023\\day-11\\expense_tracker\\db.json"
+db_filename = "db.json"
 
 # Check whether db.json exists in the directory or not
 if os.path.exists(db_filename):
@@ -41,12 +41,17 @@ def signup():
         userDict = {
             "name": name,
             "email": email,
-            "pawword": password,
+            "password": password,
             "username": username,
             "purchases": {}
         }
 
-        if len(db["users"]) == 0 or userDict not in db["users"]:
+        emailList =[]
+        for email in db["users"]:
+            emailList.append(email["email"])
+        # print(emailList)  
+
+        if len(db["users"]) == 0 or userDict["email"] not in emailList:
             db["users"].append(userDict)
             with open(db_filename,"r+") as f:
                 f.seek(0)
@@ -56,6 +61,64 @@ def signup():
         else:
             return "User already exists"    
     return "Error: Trying to access endpoint with wrong method"    
+
+# User login
+@app.route('/login',methods=['POST'])
+def login():
+    email = request.form['email']
+    password = request.form['password']
+    
+    userIndex = None
+    for user in db["users"]:
+        if user["email"] == email and user["password"] == password:
+            userIndex = db["users"].index(user)
+
+            response = {
+                "message" : "Logged in successfully",
+                "user_index": userIndex
+            }
+            return response
+        else:
+            continue
+    return "Wrong email or password!"           
+
+# Add purchase
+@app.route('/add_purchase',methods=['POST'])
+def add_purchase():
+    if request.method == 'POST':
+        user_index = int(request.form["user_index"])
+        item_name = request.form["item_name"]
+        item_type = request.form["item_type"]
+        item_price = request.form["item_price"]
+
+        curr_date = str(date.today())
+        curr_time = str(datetime.now(pytz.timezone("Asia/Kolkata")))
+
+        itemDict = {
+            "item_name":item_name,
+            "item_type":item_type,
+            "item_price":item_price,
+            "purchase_time":curr_time
+        }
+
+        existing_dates = list(db["users"][user_index]["purchases"].keys())
+        if len(db["users"][user_index]["purchases"]) == 0 or curr_date not in existing_dates:
+            # if there are no purchases user has done for the day
+            db["users"][user_index]["purchases"][curr_date] = []
+            db["users"][user_index]["purchases"][curr_date].append(itemDict)
+            with open(db_filename,"r+") as f:
+                f.seek(0)
+                json.dump(db,f,indent=4)
+            return "Item added successfully"
+        else:
+            db["users"][user_index]["purchases"][curr_date].append(itemDict)
+            with open(db_filename,"r+") as f:
+                f.seek(0)
+                json.dump(db,f,indent=4)
+            return "Item added successfully"
+        return "Some error occured"
+        
+    
 
 
 if __name__ == "__main__":

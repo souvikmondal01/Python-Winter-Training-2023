@@ -23,12 +23,76 @@
             "password": "12345",
             "username": "souvik2",
             "purchases": {
+                "2023-01-17": [
+                    {
+                        "item_name": "abc",
+                        "item_type": "Food",
+                        "item_price": "349",
+                        "purchase_time": "2023-01-19 10:17:07.314472+05:30"
+                    },
+                    {
+                        "item_name": "Bread",
+                        "item_type": "Food",
+                        "item_price": "20",
+                        "purchase_time": "2023-01-19 10:18:21.406315+05:30"
+                    }
+                ],
                 "2023-01-18": [
                     {
                         "item_name": "abc",
                         "item_type": "Clothing",
                         "item_price": "500",
                         "purchase_time": "2023-01-18 12:38:11.617631+05:30"
+                    },
+                    {
+                        "item_name": "abc",
+                        "item_type": "Clothing",
+                        "item_price": "500",
+                        "purchase_time": "2023-01-18 21:30:39.871328+05:30"
+                    }
+                ],
+                "2023-01-19": [
+                    {
+                        "item_name": "abc",
+                        "item_type": "Food",
+                        "item_price": "349",
+                        "purchase_time": "2023-01-19 10:17:07.314472+05:30"
+                    },
+                    {
+                        "item_name": "Bread",
+                        "item_type": "Food",
+                        "item_price": "20",
+                        "purchase_time": "2023-01-19 10:18:21.406315+05:30"
+                    }
+                ],
+                "2023-01-20": [
+                    {
+                        "item_name": "abc",
+                        "item_type": "Food",
+                        "item_price": "349",
+                        "purchase_time": "2023-01-19 10:17:07.314472+05:30"
+                    },
+                    {
+                        "item_name": "Bread",
+                        "item_type": "Food",
+                        "item_price": "20",
+                        "purchase_time": "2023-01-19 10:18:21.406315+05:30"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "souvik3",
+            "email": "souvik3@gmail.com",
+            "password": "12345",
+            "username": "souvik3",
+            "purchases": {
+                "2023-01-18": [
+                    {
+                        "item_name": "Peanut Butter",
+                        "item_type": "Food",
+                        "item_price": "349",
+                        "purchase_time": "2023-01-18 21:39:52.825071+05:30"
                     }
                 ]
             }

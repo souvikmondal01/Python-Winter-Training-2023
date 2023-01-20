@@ -128,15 +128,6 @@ def add_purchase():
             return "Item added successfully"
 
 
-# @app.route('/get_purchases_today', methods=['GET'])
-# def get_purchases_today():
-#     user_idx = request.args["user_index"]
-#     # print("user_index: ",user_idx)
-#     curr_date = str(date.today())
-#     list_of_purchases = db["users"][user_idx]["purchases"][curr_date]
-
-#     return jsonify(list_of_purchases)
-
 @app.route("/get_all_purchases_for_today", methods=["GET"])
 def get_all_purchases_for_today():
     user_idx = int(request.args["user_index"])

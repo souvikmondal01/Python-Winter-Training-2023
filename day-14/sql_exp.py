@@ -7,7 +7,7 @@ db = create_engine(db_string)
 meta = MetaData(db)
 
 film_table = Table(
-    'films_exp',
+    'films_exp_d26',
     meta,
     Column('title',String),
     Column('director',String),
@@ -23,3 +23,27 @@ with db.connect() as conn:
         year = "2050"
     )
     conn.execute(insert_statement)
+
+    # read from table
+    print("Reading from table")
+    select_statement = film_table.select()
+    select_result = conn.execute(select_statement)
+    for r in select_result:
+        print(r)
+
+    # update table
+    print("Updating")
+    print(film_table.c)
+    update_statement = film_table.update().where(
+        film_table.c.year == '2016'
+    ).values(title="Amazing Spiderman")
+    conn.execute(update_statement)
+
+    # delete
+    print("Delete operation")
+    delete_statement = film_table.delete().where(
+        film_table.c.year == '2016'
+    )
+    conn.execute(delete_statement)
+
+

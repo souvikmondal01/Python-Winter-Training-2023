@@ -6,3 +6,7 @@ class User(db.Model):
     username = db.Column(db.String(200), nullable=False)
     personalDetails = db.relationship('PersonalDetails',backref='user')
     projects =  db.relationship('Projects',backref='user')
+    experiences =  db.relationship('Experiences',backref='user')
+    education =  db.relationship('Education',backref='user')
+    certificates =  db.relationship('Certificates',backref='user')
+    skills =  db.relationship('Skills',backref='user')
